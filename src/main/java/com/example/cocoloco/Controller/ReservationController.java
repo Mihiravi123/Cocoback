@@ -12,7 +12,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @RestController
-@RequestMapping("/reservation")
+@RequestMapping("/api/reservation")
 public class ReservationController {
 
     @Autowired

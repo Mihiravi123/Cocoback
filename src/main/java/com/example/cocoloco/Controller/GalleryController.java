@@ -12,7 +12,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/gallery")
+@RequestMapping("/api/gallery")
 public class GalleryController {
 
     @Autowired
@@ -24,8 +24,8 @@ public class GalleryController {
         return galleryService.getAllGalleries();
     }
 
-    // Get gallery images by name
-    @GetMapping("/gallery")
+    // Get gallery images by name (now differentiated with a request parameter)
+    @GetMapping("/search")
     public ResponseEntity<Map<String, Object>> getGalleryImagesByName(@RequestParam String name) {
         Optional<Gallery> gallery = galleryService.getGalleryByName(name);
         if (gallery.isPresent()) {

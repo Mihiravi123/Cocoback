@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/contact")
+@RequestMapping("/api/contact")
 public class ContactController {
 
     @Autowired
@@ -25,21 +25,11 @@ public class ContactController {
     public ResponseEntity<Contact> addContact(@RequestBody Contact contact) {
         Contact createdContact = contactService.addContact(contact);
 
-        // After saving the contact, send an email
-        sendEmailNotification(contact);
-
+        // The email notification functionality has been removed
         return ResponseEntity.ok(createdContact);
     }
 
-    private void sendEmailNotification(Contact contact) {
-        String to = "cocolocogarden123@gmail.com"; // Company email
-        String subject = "New Contact Query Received";
-        String body = "A new query has been received regarding the event: " + contact.getEvent() +
-                " on " + contact.getFunctionDate() + ".";
 
-        // Use the EmailService to send the email
-        emailService.sendEmail(to, subject, body);
-    }
 
     // GET: Retrieve all contacts
     @GetMapping
