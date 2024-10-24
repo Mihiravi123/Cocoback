@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "https://cocoadminpanel.onrender.com")
 @RestController
 @RequestMapping("/api/facility")
 public class FacilityController {
